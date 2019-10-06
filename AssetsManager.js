@@ -69,8 +69,6 @@ AssetsMenager.prototype.play = function (key) {
 
     }
 }
-// Imagens
-var assetsMng = new AssetsMenager({});
-assetsMng.loadImage("fundo", "assets/midground.png");
+
 
 
