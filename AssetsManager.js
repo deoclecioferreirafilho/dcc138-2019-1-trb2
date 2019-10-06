@@ -1,4 +1,4 @@
-function AssetsMenager() {
+function AssetsManager() {
     this.aCarregar = 0;
     this.carregadas = 0;
     this.images = {};
@@ -13,8 +13,8 @@ function AssetsMenager() {
     }
 }
 
-AssetsMenager.prototype.loadImage = function (key, url) {
-    //console.log(`Carregando imagem ${url}...`);
+AssetsManager.prototype.loadImage = function (key, url) {
+    console.log(`Carregando imagem ${url}...`);
 
     this.aCarregar++;
     var imagem = new Image();
@@ -27,11 +27,11 @@ AssetsMenager.prototype.loadImage = function (key, url) {
     });
 }
 
-AssetsMenager.prototype.img = function (key) {
+AssetsManager.prototype.img = function (key) {
     return this.images[key];
 }
 
-AssetsMenager.prototype.progresso = function () {
+AssetsManager.prototype.progresso = function () {
     if (this.aCarregar != 0) {
         return this.carregadas / this.aCarregar * 100.0;
     } else return 0.0;
@@ -39,7 +39,7 @@ AssetsMenager.prototype.progresso = function () {
 }
 
 
-AssetsMenager.prototype.loadAudio = function (key, url) {
+AssetsManager.prototype.loadAudio = function (key, url) {
     console.log(`Carregando audio ${key}: ${url}...`);
     //this.aCarregar++;
     var audio = new Audio();
@@ -54,7 +54,7 @@ AssetsMenager.prototype.loadAudio = function (key, url) {
     */
 }
 
-AssetsMenager.prototype.play = function (key) {
+AssetsManager.prototype.play = function (key) {
     if (!this.audios[key]) {
         throw new Error(`Chave de audio inválida: ${key}!`);
     }
@@ -69,6 +69,3 @@ AssetsMenager.prototype.play = function (key) {
 
     }
 }
-
-
-

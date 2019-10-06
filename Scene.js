@@ -3,8 +3,6 @@ function Scene(params) {
         sprites: [],
         toRemove: [],
         ctx: null,
-        mensages: [],
-        ctx: null,
         w: 960,
         h: 512,
         assets: null
@@ -45,17 +43,6 @@ Scene.prototype.limpar = function () {
     this.ctx.clearRect(0, 0, this.w, this.h);
 }
 
-
-Scene.prototype.removeSprites = function () {
-    for (var i = 0; i < this.toRemove.length; i++) {
-        var idx = this.sprites.indexOf(this.toRemove[i]);
-        if (idx >= 0) {
-            this.sprites.splice(idx, 1);
-        }
-    }
-    this.toRemove = [];
-};
-
 Scene.prototype.checaColisao = function () {
     for (var i = 0; i < this.sprites.length; i++) {
         if (this.sprites[i].morto) {
@@ -80,6 +67,16 @@ Scene.prototype.checaColisao = function () {
             }
         }
     }
+};
+
+Scene.prototype.removeSprites = function () {
+    for (var i = 0; i < this.toRemove.length; i++) {
+        var idx = this.sprites.indexOf(this.toRemove[i]);
+        if (idx >= 0) {
+            this.sprites.splice(idx, 1);
+        }
+    }
+    this.toRemove = [];
 };
 
 Scene.prototype.passo = function (dt) {
